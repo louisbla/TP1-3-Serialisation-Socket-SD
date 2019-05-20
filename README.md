@@ -1,4 +1,4 @@
-TP1-3-Serialisation-Socket
+## TP1-3-Serialisation-Socket ##
 
 Ce projet simule l'exécution d'un client et d'un serveur.
 Le client possède une classe "Calc" contenant des méthodes de calcul.
