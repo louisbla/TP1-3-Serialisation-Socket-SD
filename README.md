@@ -15,6 +15,8 @@ Afin de tester le code, il faut :
 
 L'ordre d'exécution est important, car le serveur doit être disponible avant que le client puisse faire une requête.
 
+------
+
 Explication du fonctionnement :
 Au moment du lancement de la classe Client, celui-ci envoie la classe "Calc" et les paramètres (lignes 20 et 21) de la classe "Client" au serveur via un Socket.
 
