@@ -22,6 +22,7 @@ public class Server {
 		try {
 			//Créer un nouveau ServerSocket
 			ser = new ServerSocket(8020);
+			System.out.println("Server : En attente de contact d'un client");
 			//Obtenir un Socket à partir du ServerSocket
 			soc = ser.accept();
 			//Obtenir un InputStream à partir du socket
@@ -35,9 +36,9 @@ public class Server {
 			Object instance = calc.newInstance();
 			
 			Method[] methods = calc.getDeclaredMethods();
-			System.out.println("Methodes disponibles dans la classe "+ calc.getName() +": ");
+			System.out.println("Server : Methodes disponibles dans la classe "+ calc.getName() +": ");
 			for(Method meth : methods) {
-				System.out.println(meth.getName());
+				System.out.println("Server : " + meth.getName());
 			}
 			System.out.println();
 			
@@ -47,14 +48,14 @@ public class Server {
 			method = calc.getMethod("add", String.class, String.class);
 			
 			String[] arguments = {substrings[2],substrings[3]};
-			System.out.println("Appel de la méthode '"+method.getName()+"' avec les paramètres "+ substrings[2] + " et " + substrings[3] );
+			System.out.println("Server : Appel de la méthode '"+method.getName()+"' avec les paramètres "+ substrings[2] + " et " + substrings[3] );
 			int result = (int)method.invoke(instance, arguments);
 			//Simule un temps de calcul élevé
-			System.out.println("On simule un temps de calcul de 4 secondes...");
+			System.out.println("Server : On simule un temps de calcul de 4 secondes...");
 			Thread.sleep(4000);
 			
 			//Afficher les objets
-			System.out.println("resultat = " + result);
+			System.out.println("Server : resultat = " + result);
 			
 			OutputStream os = soc.getOutputStream();
 			//Créer un ObjectInputStream à partir du InputStream

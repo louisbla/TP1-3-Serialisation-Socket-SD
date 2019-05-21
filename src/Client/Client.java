@@ -18,7 +18,9 @@ public class Client {
 			ObjectOutput oos = new ObjectOutputStream(os);
 			//Ecrire les objets
 			oos.writeObject(Calc.class);
+			System.out.println("Client : La classe Calc a été envoyée au serveur");
 			oos.writeObject("Calc&add&3&5");
+			System.out.println("Client : J'ai demandé au serveur d'utiliser la méthode 'add' avec les paramètres 3 et 5");
 			//Envoyer les objects, et fermer le flux
 			
 			InputStream is = soc.getInputStream();
@@ -26,7 +28,7 @@ public class Client {
 			
 			oos.flush();
 			int result = ios.readInt();
-			System.out.println("Resultat = " + result);
+			System.out.println("Client : Le serveur a renvoyé le résultat = " + result);
 			oos.close();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
